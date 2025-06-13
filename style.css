@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #0a0f1c, #121d33);
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+  padding: 50px 20px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.centered-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.center-heading {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  color: #00f7ff;
+}
+
+#searchInput {
+  display: block;
+  margin: 10px auto;
+  padding: 12px 20px;
+  font-size: 1rem;
+  width: 90%;
+  max-width: 500px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+
+#termOfTheDay.badge-tile {
+  background-color: #182c3e;
+  color: #a0d7ff;
+  padding: 10px 16px;
+  margin: 16px auto 10px;
+  border-left: 6px solid #00f7ff;
+  border-radius: 6px;
+  max-width: 500px;
+  font-size: 0.95rem;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #00f7ff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.toggle-label {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.filter-container select {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #1c2e4a;
+  color: #00f7ff;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px 20px;
+}
+
+.card {
+  width: 300px;
+  height: 220px;
+  perspective: 1000px;
+  transition: box-shadow 0.4s;
+}
+
+.card:hover {
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.6);
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  padding: 20px;
+  backface-visibility: hidden;
+  background-color: #1a253a;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.card-front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.card-front .term {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00f7ff;
+  text-align: center;
+  padding: 0 10px;
+  word-wrap: break-word;
+  line-height: 1.4;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background-color: #1a253a;
+  color: #ffffff;
+}
+
+.card-back .example {
+  color: #a0d7ff;
+}
+
+.tile {
+  background-color: #1a253a;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.15);
+  transition: 0.3s;
+}
+
+.tile:hover {
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.75);
+}
+
+.term {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00f7ff;
+  margin-bottom: 10px;
+}
+
+.definition {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.example {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #a0d7ff;
+}
+footer {
+  background-color: #0b141f;
+  text-align: center;
+  padding: 15px;
+  font-size: 1rem;
+  font-family: 'Savate', sans-serif;
+  color: #00bfff;
+  margin-top: auto;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.3);
+}
